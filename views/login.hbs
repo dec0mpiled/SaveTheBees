@@ -1,20 +1,21 @@
-<html lang="en" class=" js csstransforms3d">
+<html lang="en" class="js csstransforms3d">
   <head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/demo.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/icons.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/component.css">
-		<script src="javascripts/modernizr.custom.js"></script>
+		<script src="/javascripts/modernizr.custom.js"></script>
 	</head>
 	
-		<style>
+			<style>
 	    
 	    .st-content {
 	        
-	        background-image: url("http://avante.biz/wp-content/uploads/Raining-Wallpapers/Raining-Wallpapers-041.jpg");
+	        background-image: url("/images/login.jpg");
 	        
 	    }
 	    
@@ -23,7 +24,7 @@
 	<body>
 		<div id="st-container" class="st-container st-effect-5">
 			
-			<nav class="st-menu st-effect-5" id="menu-5" style="background: #4D5941; color:#FFF">
+			<nav class="st-menu st-effect-5" id="menu-5">
 				<h2 class="icon icon-paperplane">Navigation</h2>
 				<ul>
 				  <li><a class="icon icon-shop" href="/">Home</a></li>
@@ -47,7 +48,7 @@
 						<!-- Top Navigation -->
 						<div class="main clearfix" style="float:left; padding:5px">
 							<div id="st-trigger-effects">
-
+								
 								<button data-effect="st-effect-5">Menu</button>
                 
 							</div>
@@ -56,17 +57,42 @@
 							
 								<img class="center" style="float:right; width:10%" src="/images/bees-01.png">
 
-								  <br style="line-height:350px">
-                <h1 class="center" style="width:27%">we need you. <i>they</i> need you.</h1>
-           <br style="line-height:50px">
-           
-           <div class="center" style="width:100%">
-            <div class="button center" style=" width:40%" onclick="window.open('https://PayPal.me/Tarnowski/10')">Donate $10 for the Research and Hosting of Bee Facts.</div>
-            <br>
-            <div class="button center" style=" width:30%"onclick="window.open('https://PayPal.me/Tarnowski/5')">Donate $5, to help save our future. </div>
-            <br>
-            <div class="button center" style="width:20%"onclick="window.open('https://PayPal.me/Tarnowski/2')">Donate $2, the price of a coffee.</div>
+								  <!-------------------------------------------------------->
+								  <!-- page here----------------------->
+								  
+								  <br><br><br><br><br><br><br><br><br><br><br>
+								  
+								  <center>
+<div style = "border:0px solid #000; width:50%; background-color:#FFF; padding: 2%; padding-right:2%" class = "polaroid">
+
+<form action="/auth/loginnow" method="post">
+    <h1 style = "color:#000">Login to Save The Bees</h1>
+    <br>
+    
+        <input style = "padding: 10px; width: 100%;font-size:20px" name = "username" placeholder = "Enter Your Username">
+         <br> <br>
+            <input style = "padding: 10px; width: 100%;font-size:20px" name = "password" type = "password" placeholder = "Enter Your Password">
+            
+            <br><br><br>
+    <button style = "padding: 10px; width: 100%;font-size:20px;" class="buttonf" action = "submit">Login</button>
+    
+    </form>
+    
+    <br>
+    <font color = #000>Don't have an account, but want to? Click <a href = "/register">here.</a></font>
+    
+	{{#if info}}
+	
+<br><br>
+	<font color = "red" size = 4px>{{info}}</font>
+	{{/if}}
+
 </div>
+</center>
+								  
+								  
+								  <!----------------------------------------------------->
+
 					</div><!-- /st-content-inner -->
 				</div><!-- /st-content -->
 			</div><!-- /st-pusher -->

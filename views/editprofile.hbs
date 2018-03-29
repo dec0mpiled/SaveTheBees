@@ -1,0 +1,159 @@
+<html lang="en" class=" js csstransforms3d">
+  <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/demo.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/icons.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/component.css">
+		<script src="/javascripts/modernizr.custom.js"></script>
+		<script src="/javascripts/jscolor.js"></script>
+	</head>
+	
+		<style>
+	    
+	    .st-content {
+	        
+	        background-image: url("http://avante.biz/wp-content/uploads/Raining-Wallpapers/Raining-Wallpapers-041.jpg");
+	        
+	    }
+	    
+	</style>
+	
+	<body>
+		<div id="st-container" class="st-container st-effect-5">
+			
+			<nav class="st-menu st-effect-5" id="menu-5" style="background: #4D5941; color:#FFF">
+				<h2 class="icon icon-paperplane">Navigation</h2>
+				<ul>
+				  <li><a class="icon icon-shop" href="/">Home</a></li>
+					<li><a class="icon icon-news" href="/facts">Facts About Bees</a></li>
+					<li><a class="icon icon-location" href="#">Location</a></li>
+					<li><a class="icon icon-study" href="#">Study</a></li>
+					<li><a class="icon icon-megaphone" href="/forums">Forums</a></li>
+					<li><a class="icon icon-banknote" href="/donate">Donate</a></li>
+					{{#if user}}
+					<li><a href="/profile"><img src = {{user.avi}} width = 20px style = "border-radius:8px;float:left">&nbsp;&nbsp;&nbsp;My Profile</a></li>
+					<li><a class="icon icon-lock" href="/auth/logout">Logout {{user.username}}</a></li>
+					{{/if}}
+				</ul>
+			</nav>
+			
+			<!-- content push wrapper -->
+			<div class="st-pusher">
+				
+				<div class="st-content"><!-- this is the wrapper for the content -->
+					<div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+						<!-- Top Navigation -->
+						<div class="main clearfix" style="float:left; padding:5px">
+							<div id="st-trigger-effects">
+
+								<button data-effect="st-effect-5">Menu</button>
+                
+							</div>
+						</div><!-- /main -->
+						
+							
+								<img class="center" style="float:right; width:10%" src="/images/bees-01.png">
+								<center>
+<br style="line-height:100px">
+								 <div style = "border:0px solid #000; width:80%; background-color:#FFF; padding: 2%; padding-right:2%" class = "polaroid">
+
+<script>
+    
+    function border() {
+        
+        var mycolor = document.getElementById("color").value;
+        document.getElementById("pp").style.border = "3px solid #"+mycolor;
+        document.getElementById("hr1").style.border = "1px solid #"+mycolor;
+        
+    }
+    
+    
+</script>
+
+<div class="image-upload">
+    <label for="file-input">
+        <img id = "pp" src = {{user.avi}} style = "border-radius:200px; border:3px solid #737373" width = 150px>
+    </label>
+
+    <input id = "file-input" type="file" onchange="upload(this.files[0])">
+</div>
+
+
+<form id="submitpic" action="/updateprofile" method="post">
+
+
+<script>
+    /* Drag'n drop stuff */
+    function upload(file) {
+        /* Is the file an image? */
+        if (!file || !file.type.match(/image.*/)) return;
+        /* It is! */
+        document.body.className = "uploading";
+        /* Lets build a FormData object*/
+        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+        fd.append("image", file); // Append the file
+        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+        xhr.onload = function() {
+            // Big win!
+            document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
+            document.querySelector("#url").value = JSON.parse(xhr.responseText).data.link;
+            var linkval=JSON.parse(xhr.responseText).data.link;
+            document.body.className = "uploaded";
+            var newpp = document.getElementById("pp").src=linkval;
+        }
+        
+        xhr.setRequestHeader('Authorization', 'Client-ID 9fa1779f17f318a'); // Get your own key http://api.imgur.com/
+        
+        // Ok, I don't handle the errors. An exercise for the reader.
+        /* And now, we send the formdata */
+        xhr.send(fd);
+    }
+</script>
+
+    <style>
+    #url {display: inline}
+    #link {display: none}
+    #link1 {display:none}
+    .uploaded #link {display: none}
+    #update {display: none}
+    .uploaded #update {display: inline}
+    .uploading #link1 {display: none}
+    #url {display:none}
+</style>
+<br><br>
+<p id="link">Image Uploaded Succesfully!</p>
+<p id="link1">Uploading...</p>
+     
+     <input style = "color:#000" id="url" name="avibox" value = {{user.avi}}>
+
+<input onchange = "border()" id = "color" class="jscolor" name = "colorbox" style = "text-align:center" value="{{user.color}}">
+<h1 style = "color:#000"><input style = "text-align:center" name = "namebox" value = "{{user.name}}">{{#if user.verified}}<div class="tooltip"><img width = 25px src = "https://i0.wp.com/castercomm.com/wp-content/uploads/2016/07/Twitter-checkmark.png?resize=316%2C316&ssl=1"><span class="tooltiptext">Your account is verified. Being verified allows you to be more recognizable on others' timelines.</span></div>{{/if}}</h1> 
+<p style = "color:#8c8c8c; font-size:25px">@<input name = "usernamebox" style = "text-align:center" value = "{{user.username}}"></p>
+<h4 style = "color: #000">Note: Changing your username will log you out. You will need to log in with your new username.</h4>
+<hr id="hr1"><br>
+
+<p style = "color:#737373"><input name = "biobox" style = "width:100%; text-align:center" value = "{{user.bio}}"></p>
+
+<br>
+
+<button>Finish and Save Changes</button>
+
+    </form>
+
+</div>
+
+<br style="line-height:30px">
+</center>
+								 
+					</div><!-- /st-content-inner -->
+				</div><!-- /st-content -->
+			</div><!-- /st-pusher -->
+		</div><!-- /st-container -->
+		<script src="javascripts/classie.js"></script>
+		<script src="javascripts/sidebarEffects.js"></script>
+	
+</body></html>
