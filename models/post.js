@@ -5,8 +5,11 @@ var comments = new Schema({ value: String, likes: Number, dislikes: Number, user
 
 var Post = new Schema({
     author: String,
+    name:String,
+    photo: String,
     raw: String,
     content: String,
+    created: Date,
 });
 
 module.exports = mongoose.model('posts', Post);

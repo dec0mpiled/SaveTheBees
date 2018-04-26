@@ -1,20 +1,21 @@
-<html lang="en" class=" js csstransforms3d">
+<html lang="en" class="js csstransforms3d">
   <head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/demo.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/icons.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/component.css">
-		<script src="javascripts/modernizr.custom.js"></script>
+		<script src="/javascripts/modernizr.custom.js"></script>
 	</head>
 	
-		<style>
+			<style>
 	    
 	    .st-content {
 	        
-	        background-image: url("http://avante.biz/wp-content/uploads/Raining-Wallpapers/Raining-Wallpapers-041.jpg");
+	        background-image: url("http://gipsypixel.com/wp-content/uploads/2017/11/Trendy-Forest-Wall-Mural-Stickers-Hd-And-Snowy-Backgrounds-Wallpaper-Design-Of-Iphone-High-Quality.jpg");
 	        
 	    }
 	    
@@ -23,7 +24,7 @@
 	<body>
 		<div id="st-container" class="st-container st-effect-5">
 			
-			<nav class="st-menu st-effect-5" id="menu-5" style="background: #4D5941; color:#FFF">
+			<nav class="st-menu st-effect-5" id="menu-5">
 				<h2 class="icon icon-paperplane">Navigation</h2>
 				<ul>
 				  <li><a class="icon icon-shop" href="/">Home</a></li>
@@ -47,7 +48,7 @@
 						<!-- Top Navigation -->
 						<div class="main clearfix" style="float:left; padding:5px">
 							<div id="st-trigger-effects">
-
+								
 								<button data-effect="st-effect-5">Menu</button>
                 
 							</div>
@@ -55,67 +56,39 @@
 						
 							
 								<img class="center" style="float:right; width:10%" src="/images/bees-01.png">
-								<center>
-<br style="line-height:100px">
-								 <div style = "border:0px solid #000; width:80%; background-color:#FFF; padding: 2%; padding-right:2%" class = "polaroid">
-<a href = "/edit"><img width = 20px style = "float:right" src = "https://image.flaticon.com/icons/png/512/34/34022.png"></a>
-<img class = "zoom" src = {{user.avi}} style = "border-radius:200px; border:3px solid #{{user.color}}" width = 150px>
 
-<br>
+								  <!-------------------------------------------------------->
+								  <!-- page here----------------------->
+								  
+								  <br><br><br><br><br><br><br><br><br><br><br>
+								  
+								  <center>
+							
+<div style = "border:0px solid #000; width:50%; background-color:#FFF; padding: 2%; padding-right:2%" class = "polaroid">
 
-<h1 style = "color:#000">{{user.name}} {{#if user.verified}}<img width = 25px src = "https://i0.wp.com/castercomm.com/wp-content/uploads/2016/07/Twitter-checkmark.png?resize=316%2C316&ssl=1">{{/if}}</h1> 
-<p style = "color:#8c8c8c; font-size:25px">@{{user.username}}</p>
-<hr style = "border:1px solid #{{user.color}}"><br>
 
-<p style = "color:#737373">{{user.bio}}</p>
+<form action="/makepost" method="post">
+    
+        <textarea style = "width:100%;resize: vertical;" id = "content" name = "content" rows = 10></textarea>
+            
+            <br><br><br>
+
+    <button style = "width:40%;padding: 10px;font-size:20px;" class="buttonf" action = "submit">Publish</button>
+
+    </form>
+    
+	{{#if info}}
+	
+<br><br>
+	<font color = "red" size = 4px>{{info}}</font>
+	{{/if}}
 
 </div>
-
-<br style="line-height:30px">
-	<div style = "border:0px solid #000; width:80%; background-color:#FFF; padding: 2%; padding-right:2%" class = "polaroid">
-
-
-{{#if posts}}
-
-<p style = "color:#737373"><a href = "/createpost">Create a post!</a></p>
-
-<br>
-
-{{#each posts}}
-
-<div style = "background-color:#e6e6e6;padding:1%;color:#000;width:60%;text-align:left;margin-bottom:10px">
-	
-	<img src = "{{photo}}" width = 12% style = "float:left;margin-right:10px;border-radius:10px">
-	
-	<h2 style = "margin-left:10px;">{{name}}</h2>
-	<h4 style = "color:#999999;line-height:0px">@{{author}}</h4>
-
-	
-	<br style = "line-height:10px">
-	
-	<p style = "text-align:left;font-size:20px">
-		
-		{{content}}
-		
-	</p>
-	
-	<br>
-	
-	<font color = "red"><a href = "/deleteme/{{id}}">Delete Post</a></font>
-	
-</div>
-
-{{/each}}
-
-{{else}}
-
-<p style = "color:#737373">You have no posts yet! <a href = "/createpost">Create one now.</a></p>
-
-{{/if}}
-</div>
-<br style="line-height:30px">
 </center>
-								 
+								  
+								  
+								  <!----------------------------------------------------->
+
 					</div><!-- /st-content-inner -->
 				</div><!-- /st-content -->
 			</div><!-- /st-pusher -->

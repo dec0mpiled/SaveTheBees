@@ -43,11 +43,53 @@ router.get('/thanks', ensureAuthenticated, function(req, res, next) {
 });
 
 router.get('/profile', ensureAuthenticated, function(req, res, next) {
-  res.render('profile', { title: "My Profile - Save The Bees", user:req.user });
+  
+  Post.find({author:req.user.username}, null, { sort: '-created' }, function(err, foundPosts) {
+    
+    if (err) return next (err);
+    
+    
+      
+  res.render('profile', { title: "My Profile - Save The Bees", user:req.user, posts:foundPosts});
+});
+});
+
+router.get('/createpost', function(req, res, next) {
+  res.render('createpost', { title: 'Create - Save The Bees', user:req.user });
 });
 
 router.get('/edit', ensureAuthenticated, function(req, res, next) {
   res.render('editprofile', { title: "Edit Profile - Save The Bees", user:req.user });
+});
+
+router.post('/makepost', ensureAuthenticated, function(req, res, next) {
+  
+  var newPost = new Post({
+    
+    author: req.user.username,
+    name: req.user.name,
+    photo: req.user.avi,
+    content: req.body.content,
+    created: new Date(),
+    
+  });
+  
+  newPost.save()
+  res.redirect("/profile")
+  
+});
+
+router.get('/deleteme/:id', ensureAuthenticated, function(req, res, next) {
+   
+   Post.findOneAndRemove({_id:req.params.id}, function(err, me) {
+       
+       if (err) return next (err);
+       
+       res.redirect('/profile');
+        
+       
+   });
+    
 });
 
 router.post('/updateprofile', ensureAuthenticated, function(req, res, next) {
